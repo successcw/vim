@@ -81,8 +81,18 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Show trailing whitepace and spaces before a tab:
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+fun! StripTrailingWhitespace()
+    " Only strip if the b:noStripeWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s\+$//e
+endfun
+
 " auto remove leading and trailing whitespace when save
-:autocmd BufWritePre * :%s/\s\+$//e
+:autocmd BufWritePre * call StripTrailingWhitespace()
+:autocmd FileType markdown let b:noStripWhitespace=1
 " using :retab to change tab to space*4
 
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
