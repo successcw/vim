@@ -7,3 +7,6 @@ This is my vim config
 * vim ~/.vimrc
 * PluginInstall
 * cp gtags.conf to ~/.vimrc
+
+## Note
+cscope need more time if project is large when open a file firstly, so please wait more time to close.
