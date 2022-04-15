@@ -101,7 +101,7 @@ set encoding=utf-8
 "set cscopetag
 
 let $GTAGSLABEL = 'native-pygments'
-let $GTAGSCONF = '/home/successcw/install/global-6.6.5/gtags.conf'
+let $GTAGSCONF = '~/.vimrc/gtags.conf'
 
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
