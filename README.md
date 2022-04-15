@@ -6,3 +6,4 @@ This is my vim config
 * git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 * vim ~/.vimrc
 * PluginInstall
+* cp gtags.conf to ~/.vimrc
