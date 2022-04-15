@@ -114,10 +114,10 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
-"let g:gutentags_auto_add_gtags_cscope = 0
+let g:gutentags_auto_add_gtags_cscope = 1
 
 "let g:gutentags_trace = 1
-"let g:gutentags_define_advanced_commands = 1
+let g:gutentags_define_advanced_commands = 1
 
 nmap <C-\>s :GscopeFind s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>f :GscopeFind f <C-R>=expand("<cword>")<CR><CR>
@@ -139,4 +139,4 @@ let g:ycm_show_diagnostics_ui = 0
 filetype plugin on
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_port = 8894
-
+let g:instant_markdown_open_to_the_world = 1
