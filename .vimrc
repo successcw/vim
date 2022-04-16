@@ -122,6 +122,7 @@ let g:gutentags_define_advanced_commands = 1
 nmap <C-\>s :GscopeFind s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>f :GscopeFind f <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>g :GscopeFind g <C-R>=expand("<cword>")<CR><CR>
+noremap <C-]> g<C-]>
 
 "预览 quickfix 窗口 ctrl-w z 关闭
 "P 预览 大p关闭
