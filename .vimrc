@@ -38,15 +38,28 @@ highlight PmenuSel ctermfg=blue ctermbg=gray
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-set tabstop=4
-set expandtab
-set autoindent
-" set softtabstop=4
-set shiftwidth=4
-set showmatch
-set number
-set hlsearch
-set incsearch
+
+let environment = "RTOS"
+if environment == "RTOS"
+" Bellowing is for RTOS
+    set tabstop=4
+    set expandtab
+    set autoindent
+    " set softtabstop=4
+    set shiftwidth=4
+else
+    " Bellowing if for Linux kernel
+    syn on se title
+    set tabstop=8
+    set softtabstop=8
+    set shiftwidth=8
+    set noexpandtab
+endif
+    set showmatch
+    set hlsearch
+    set incsearch
+    set list listchars=tab:»\ ,trail:.,extends:»,precedes:«
+    set ai
 
 " cscope setting
 "if has("cscope")
@@ -106,8 +119,20 @@ let $GTAGSCONF = '~/.vimrc/gtags.conf'
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
-" config project root markers.
-let g:gutentags_project_root = ['.root']
+let gutentags_multi_git = "true"
+if gutentags_multi_git == "true"
+
+    function! GetPwd(path)
+        return getcwd()
+    endfunction
+
+    let g:gutentags_project_root_finder='GetPwd'
+    let g:gutentags_add_default_project_roots=0
+
+else
+    " config project root markers.
+    "let g:gutentags_project_root = ['.root']
+endif
 
 " generate datebases in my cache directory, prevent gtags files polluting my project
 let g:gutentags_cache_dir = expand('~/.cache/tags')
@@ -141,3 +166,7 @@ filetype plugin on
 let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
 let g:instant_markdown_port = 8894
 let g:instant_markdown_open_to_the_world = 1
+
+set nobackup
+set noswapfile
+set noundofile
